@@ -37,3 +37,4 @@ website/vendor
 # GPG key
 public.key
 private.key
+trace.txt
