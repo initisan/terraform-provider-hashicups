@@ -19,6 +19,7 @@ var (
 // coffeesDataSourceModel maps the data source schema data.
 type coffeesDataSourceModel struct {
 	Coffees []coffeesModel `tfsdk:"coffees"`
+	ID      types.String   `tfsdk:"id"`
 }
 
 // coffeesModel maps coffees schema data.
@@ -146,6 +147,8 @@ func (d *coffeesDataSource) Read(ctx context.Context, req datasource.ReadRequest
 
 		state.Coffees = append(state.Coffees, coffeeState)
 	}
+
+	state.ID = types.StringValue("placeholder")
 
 	// Set state
 	diags := resp.State.Set(ctx, &state)
