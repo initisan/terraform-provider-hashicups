@@ -80,6 +80,9 @@ jobs:
       - name: Start services
         run: |
           docker-compose -f docker_compose/docker-compose.yml up -d
+      - name: signup a Hashicups user
+        run: |
+          curl -X POST localhost:19090/signup -d '{"username":"education", "password":"test123"}'
       - env:
           TF_ACC: "1"
         run: go test -v -cover ./internal/provider/
