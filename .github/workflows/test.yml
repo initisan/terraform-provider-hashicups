@@ -76,7 +76,7 @@ jobs:
           terraform_wrapper: false
       - run: go mod download
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v3
       - name: Start services
         run: |
           docker-compose -f docker_compose/docker-compose.yml up -d
